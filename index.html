@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="サイトの概要文が入ります。">
+    <meta name="format-detection" content="telephone=no, address=no, email=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>くじデザイン</title>
+
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/destyle.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <div class="container_match">
+      <div class="container">
+        <div class="history_box">
+          <div>
+            <div class="container container_button">
+              <button id="reset" class="button" type="button">リセット</button>
+              <!-- <button id="tuika" type="button">tuika</button> -->
+              <label class="open button" for="pop-up">遊び方</label>
+            </div>
+            <input type="checkbox" id="pop-up">
+            <div class="overlay">
+              <div class="window">
+                <div class="container">
+                  <label class="close" for="pop-up">閉じる</label>
+                  <h1>遊び方</h1>
+                </div>
+                <p class="description">&emsp;相手はパー3枚、グー2枚、チョキ1枚の6枚の手札から1枚ずつ引いて戦います。プレイヤーは画面下部のグー・チョキ・パーのいずれかをクリックで選んで、じゃんけんを挑むことができます。相手の手札がなくなると自動的にリセットされ、6回勝負の総合の勝敗が出ます。<br>
+                &emsp;画面右上に並んでいるのは相手の残り手札です。<br>
+                &emsp;また、プレイヤーは同じ手を2回連続で出すことができません。</p>
+              </div>
+            </div>
+          </div>
+          <div class="table_container">
+            <table class="history_top">
+              <tr>
+                <td>自分</td>
+                <td>相手</td>
+                <td>勝敗</td>
+              </tr>
+            </table>
+            <table id="history"></table>
+          </div>
+        </div>
+        <div class="match_info">
+          <p id="round_text"></p>
+          <p id="winning_rate"></p>
+          <p id="winning_rate_pre"></p>
+          <p id="totalResult"></p>
+        </div>
+      </div>
+
+      <div class="match">
+        <div class="back">
+          <div class="container">
+            <div id="rival_deck"></div>
+          </div>
+          <div class="container container_rival">
+            <img src="img/hand-spock-regular.svg" alt="rival" id="rival_img" class="rival_img">
+          </div>
+          <div class="container">
+           <p id="rival" class="rival"></p>
+          </div>
+        </div>
+        <div class="container">
+          <p id="result" class="result"></p>
+        </div>
+        <div class="front">
+          <div class="container">
+            <div class="myChoice">
+              <img src="img/hand-spock-regular.svg" alt="" id="myChoice">
+            </div>
+          </div>
+          <div class="container">
+            <div class="buttons">
+              <img src="img/hand-back-fist-regular.svg" alt="rock" id="rock">
+              <img src="img/hand-scissors-regular.svg" alt="scissors" id="scissors">
+              <img src="img/hand-spock-regular.svg" alt="paper" id="paper">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>

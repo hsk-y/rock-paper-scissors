@@ -1,0 +1,276 @@
+@charset "utf-8";
+
+:root{
+  --btn-color : #dcdcdc;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-feature-settings: 'palt' 1; /* 自動文字詰め */
+  color: #333333; /* 真っ黒だとコントラストつきすぎて目が痛いので */
+  background-color: #ffffcd; /* 背景色は適宜変更すること */
+  padding: 30px;
+}
+
+.box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front {
+  position: relative;
+  left: -10vw;
+}
+
+.back {
+  position: relative;
+  left: 10vw;
+}
+
+.description{
+  font-size: 16px;
+  padding: 50px 50px 0 50px;
+  letter-spacing: .2em;
+  line-height: 1.8em;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.container_match{
+  padding: 0 15vw 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container_button{
+  align-items: center;
+  justify-content: space-between;
+}
+
+.match{
+  margin-top: 30px;
+}
+
+.container .buttons{
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .buttons img{
+  width: 70px;
+}
+
+.container .buttons img:hover{
+  animation: button_motion 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0s 1 normal forwards running;
+}
+
+.rival{
+  color: #60c0a0;
+  font-size: 50px;
+  font-weight: 600;
+  transform: scale(0,0);
+}
+
+.rival_img{
+  width: 200px;
+  height: 200px;
+  max-width: 200px;
+  rotate: 210deg;
+  margin: 30px;
+}
+
+#rival_deck{
+  display: flex;
+}
+
+#rival_deck img{
+  width: 40px;
+  height: 40px;
+  rotate: 180deg;
+  display: inline-block;
+}
+
+.myChoice img{
+  width: 200px;
+  height: 200px;
+  margin: 30px;
+  rotate: 30deg;
+}
+
+.result{
+  color: #60c0a0;
+  font-size: 20px;
+  font-weight: 600;
+  transform: scale(0,0);
+}
+
+.anim_result{
+  animation: result_motion 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s 1 normal forwards running;
+}
+
+.anim_rival{
+  animation: result_motion 1s cubic-bezier(0.16, 1, 0.3, 1) 0s 1 normal forwards running;
+}
+
+.anim_myChoice{
+  animation: result_motion 1s cubic-bezier(0.16, 1, 0.3, 1) 0s 1 normal forwards running;
+}
+
+.text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text p{
+  font-size: 20px;
+  color: #333333;
+}
+
+.button{
+  font-size: 20px;
+  padding: 10px 20px;
+  border: 0.5px solid #777;
+  border-radius: 7px;
+}
+
+.button:hover{
+  opacity: 60%;
+}
+
+#reset{
+  background-color: #ffffa0;
+}
+
+.history_box{
+  margin-right: 30px;
+}
+
+#history{
+  max-height: 500px;
+}
+
+#history, .history_top{
+  width: 300px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  align-items: center;
+}
+
+.history_top{
+  border-bottom:1px solid #777 ;
+}
+
+#history th,#history td,.history_top th,.history_top td{
+  padding: 10px 0;
+  text-align: center;
+}
+
+#history tr:nth-child(odd){
+  background-color: #ffffa0;
+}
+
+.table_container{
+  overflow: auto;
+  width: 110%;
+  height: 85vh;
+}
+
+.match_info{
+  font-size: 30px;
+  margin: 50px 0 0 0;
+  letter-spacing:  2px;
+  width: 280px;
+}
+
+.match_info p{
+  margin-top: 10px;
+}
+
+@keyframes result_motion {
+  0% {
+    transform:scale(0);
+  }
+  40% {
+    transform:scale(0);
+  }
+  100% {
+    transform:scale(1);
+  }
+}
+
+@keyframes button_motion {
+  0% {
+    transform:scale(1);
+  }
+
+  100% {
+    transform:scale(1.2);
+  }
+}
+
+/*----------------------------------------*
+ pop up
+*----------------------------------------*/
+
+.open {
+	cursor:pointer;
+  font-size: 20px;
+  background-color: #c4c7f2;
+}
+
+#pop-up {
+	display: none;
+}
+
+.overlay {
+	display: none;
+}
+
+#pop-up:checked + .overlay {
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.window {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 200vw;
+	max-width: 800px;
+  padding: 50px;
+	background-color: #fff;
+	border-radius: 4px;
+	align-items: center;
+	transform: translate(-50%, -50%);
+}
+
+.window h1{
+  font-size: 30px;
+  padding: 0 50px;
+}
+
+.close {
+  font-size: 20px;
+  padding: 30px 50px 0 50px;
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	cursor:pointer;
+}
+
+.close:hover {
+  opacity: 50%;
+}
